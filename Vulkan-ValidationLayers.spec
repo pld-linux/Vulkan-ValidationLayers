@@ -3,7 +3,7 @@
 %bcond_without	wayland		# Wayland support
 %bcond_without	x11		# X11 (Xlib/XCB) support
 
-%define	api_version	1.4.309.0
+%define	api_version	1.4.321.0
 %define	gitref		vulkan-sdk-%{api_version}
 
 Summary:	Vulkan Validation Layers (VVL)
@@ -15,7 +15,7 @@ License:	Apache v2.0
 Group:		Applications/Graphics
 #Source0Download: https://github.com/KhronosGroup/Vulkan-ValidationLayers/tags
 Source0:	https://github.com/KhronosGroup/Vulkan-ValidationLayers/archive/%{gitref}/%{name}-%{gitref}.tar.gz
-# Source0-md5:	ca5e1f1a770da38c1adc733e004c6c03
+# Source0-md5:	df6d480d5baf24dd82fece3b71766628
 URL:		https://github.com/KhronosGroup/Vulkan-ValidationLayers
 BuildRequires:	Vulkan-Loader-devel >= %{api_version}
 BuildRequires:	Vulkan-Utility-Libraries >= %{api_version}
