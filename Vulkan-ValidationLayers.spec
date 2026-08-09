@@ -3,7 +3,7 @@
 %bcond_without	wayland		# Wayland support
 %bcond_without	x11		# X11 (Xlib/XCB) support
 
-%define	api_version	1.4.341.0
+%define	api_version	1.4.357.0
 %define	gitref		vulkan-sdk-%{api_version}
 
 Summary:	Vulkan Validation Layers (VVL)
@@ -15,7 +15,7 @@ License:	Apache v2.0
 Group:		Applications/Graphics
 #Source0Download: https://github.com/KhronosGroup/Vulkan-ValidationLayers/tags
 Source0:	https://github.com/KhronosGroup/Vulkan-ValidationLayers/archive/%{gitref}/%{name}-%{gitref}.tar.gz
-# Source0-md5:	6c55769042126c6836e36ba1bf735275
+# Source0-md5:	ee6dcb40f100ee1871f353f3aea765d7
 URL:		https://github.com/KhronosGroup/Vulkan-ValidationLayers
 BuildRequires:	Vulkan-Loader-devel >= %{api_version}
 BuildRequires:	Vulkan-Utility-Libraries >= %{api_version}
@@ -26,7 +26,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	python3 >= 1:3
 BuildRequires:	robin_hood-devel
 BuildRequires:	rpmbuild(macros) >= 1.605
-BuildRequires:	spirv-headers >= 1.6.1-5
+BuildRequires:	spirv-headers >= 1.6.1-10
 BuildRequires:	spirv-tools >= 1:2025.1
 %{?with_wayland:BuildRequires:	wayland-devel}
 %{?with_x11:BuildRequires:	xorg-lib-libX11-devel}
@@ -58,7 +58,8 @@ poprawnego użycia API Vulkan w aplikacjach.
 %cmake -B build \
 	%{!?with_wayland:-DBUILD_WSI_WAYLAND_SUPPORT=OFF} \
 	%{!?with_x11:-DBUILD_WSI_XCB_SUPPORT=OFF} \
-	%{!?with_x11:-DBUILD_WSI_XLIB_SUPPORT=OFF}
+	%{!?with_x11:-DBUILD_WSI_XLIB_SUPPORT=OFF} \
+	-DUPDATE_DEPS=OFF
 
 %{__make} -C build
 
